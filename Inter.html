@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f8ff">
+<meta name="description" content="SocialBoost AI — your social media content assistant.">
+
+<title>SocialBoost AI | Create. Engage. Grow.</title>
+
+<style>
+:root {
+    --purple: #8060f5;
+    --text: #14294f;
+    --muted: #647aa2;
+    --border: #e9e6ff;
+    --shadow: 0 10px 35px rgba(92,91,160,.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top left,#f4efff,transparent 35%),
+        radial-gradient(ellipse at bottom right,#edf8ff,transparent 35%),
+        #fff;
+    line-height: 1.6;
+}
+
+button, input, textarea, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.navbar {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.brand-icon {
+    background: linear-gradient(135deg,#d8ceff,#bde9ff);
+    border-radius: 14px;
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.brand span {
+    color: var(--purple);
+}
+
+.brand small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn {
+    border: 0;
+    border-radius: 13px;
+    padding: 13px 18px;
+    background: linear-gradient(110deg,#987aff,#7755ef);
+    color: white;
+    font-weight: 750;
+    box-shadow: 0 7px 18px #8060f526;
+}
+
+.container {
+    max-width: 1100px;
+    width: calc(100% - 32px);
+    margin: auto;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 20px;
+    align-items: center;
+    padding: 42px 35px;
+    border: 1px solid #ece8ff;
+    border-radius: 27px;
+    background: linear-gradient(115deg,#f0edff,#eef8ff 55%,#fff0fa);
+    overflow: hidden;
+}
+
+.pill {
+    display: inline-block;
+    background: #e5deff;
+    color: #6449d9;
+    padding: 7px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(32px,5vw,50px);
+    line-height: 1.16;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg,#8059f4,#459ce9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #51688f;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 22px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero-art {
+    min-height: 210px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.art-circle {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#ded6ff,#d6f3ff);
+    display: grid;
+    place-items: center;
+    font-size: 90px;
+    box-shadow: inset 0 0 30px #fff9;
+}
+
+.floating-card {
+    position: absolute;
+    background: #ffffffed;
+    border-radius: 14px;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+}
+
+.float-one {
+    top: 15px;
+    right: 0;
+}
+
+.float-two {
+    bottom: 15px;
+    left: 0;
+}
+
+.section-heading {
+    margin: 32px 0 18px;
+}
+
+.section-heading h2 {
+    font-size: 26px;
+    letter-spacing: -.5px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 15px;
+}
+
+.tool {
+    text-align: left;
+    min-width: 0;
+    min-height: 135px;
+    padding: 17px;
+    border: 1px solid transparent;
+    border-radius: 19px;
+    color: var(--text);
+    transition: .2s;
+}
+
+.tool:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.tool.active {
+    border-color: #a997ff;
+    box-shadow: 0 5px 20px #8060f514;
+}
+
+.pink {background:#fff1f7;border-color:#ffedf5}
+.mint {background:#edfff7;border-color:#dff9ed}
+.lavender {background:#f2efff;border-color:#ebe6ff}
+.peach {background:#fff4e9;border-color:#fff0e1}
+.blue {background:#edf7ff;border-color:#e4f2ff}
+.cyan {background:#eafcff;border-color:#dff7fa}
+
+.tool-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #ffffffbb;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.tool h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.tool p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.generator {
+    margin: 32px 0;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    background: #ffffffdf;
+    box-shadow: var(--shadow);
+}
+
+.generator-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 23px;
+}
+
+.generator-icon {
+    width: 47px;
+    height: 47px;
+    display: grid;
+    place-items: center;
+    background: #f1edff;
+    border-radius: 14px;
+    font-size: 25px;
+}
+
+.generator-heading h2 {
+    font-size: 22px;
+}
+
+.generator-heading p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.generator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 23px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 1px solid #e0e5f5;
+    border-radius: 11px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #a694ff;
+    box-shadow: 0 0 0 3px #a694ff20;
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+.select-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.generate {
+    width: 100%;
+    border: 0;
+    padding: 14px;
+    color: white;
+    background: linear-gradient(110deg,#987aff,#7755ef);
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.output-card {
+    min-width: 0;
+    border: 1px solid #e0f4eb;
+    border-radius: 17px;
+    padding: 16px;
+    background: linear-gradient(145deg,#f2fff9,#fff);
+}
+
+.output-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #e5f5ed;
+}
+
+.output-top h3 {
+    font-size: 15px;
+}
+
+.output-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.secondary {
+    background: white;
+    border: 1px solid #d8d0ff;
+    color: #7556df;
+    border-radius: 9px;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.result-text {
+    min-height: 200px;
+    padding: 17px 0;
+    color: #30466d;
+    font-size: 13px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.hint, .small-note {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+    margin-top: 12px;
+}
+
+.hint {
+    padding: 12px;
+    background: #f7f4ff;
+    border: 1px solid #e8e1ff;
+    border-radius: 11px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 15px;
+    margin: 20px 0 30px;
+}
+
+.price-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 21px;
+    box-shadow: var(--shadow);
+}
+
+.price-card.featured {
+    border: 2px solid #a797ff;
+    background: linear-gradient(145deg,#faf8ff,#fff);
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 850;
+    margin: 12px 0 4px;
+}
+
+.price small {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.price-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+
+.price-card ul {
+    list-style: none;
+    font-size: 12px;
+    line-height: 2.2;
+}
+
+.price-card li::before {
+    content: "✓ ";
+    color: #32b58b;
+    font-weight: 900;
+}
+
+footer {
+    margin-top: 35px;
+    padding: 23px 18px;
+    border-top: 1px solid #eeeaff;
+    background: #ffffffbd;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-text {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media(max-width:760px) {
+    .navbar {padding:15px}
+    .nav-links {display:none}
+    .brand {font-size:17px}
+    .nav-cta {padding:10px 12px;font-size:12px}
+
+    .hero {
+        grid-template-columns:1fr;
+        padding:28px 20px;
+    }
+
+    .hero h1 {font-size:35px}
+    .hero-art {min-height:175px}
+    .art-circle {width:150px;height:150px;font-size:72px}
+
+    .tools {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+    }
+
+    .tool {padding:13px;min-height:135px}
+    .generator {padding:18px 14px}
+    .generator-grid {grid-template-columns:1fr}
+    .pricing-grid {grid-template-columns:1fr}
+}
+
+@media(max-width:380px) {
+    .container {width:calc(100% - 24px)}
+    .hero h1 {font-size:30px}
+    .select-row {grid-template-columns:1fr;gap:0}
+    .generator-heading h2 {font-size:19px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="brand">
+        <div class="brand-icon">🌿</div>
+        <div>
+            SocialBoost <span>AI</span>
+            <small>Create · Engage · Grow</small>
+        </div>
+    </div>
+
+    <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="btn" onclick="scrollToGenerator()">Get Started →</button>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div>
+            <div class="pill">✨ YOUR SOCIAL MEDIA ASSISTANT</div>
+
+            <h1>
+                Create Amazing Content.<br>
+                <span class="gradient-text">Grow Your Brand.</span>
+            </h1>
+
+            <p>
+                Generate captions, hashtags, Reel ideas, product descriptions
+                and more — all in one place.
+            </p>
+
+            <button class="btn" onclick="scrollToGenerator()">
+                ✨ Start Creating
+            </button>
+
+            <div class="benefits">
+                <span>⚡ Fast</span>
+                <span>💜 Easy to Use</span>
+                <span>👥 Made for Creators</span>
+            </div>
+        </div>
+
+        <div class="hero-art">
+            <div class="art-circle">📱</div>
+            <div class="floating-card float-one">
+                💜 Better Content<br>📈 Bigger Reach
+            </div>
+            <div class="floating-card float-two">
+                ✨ Create something amazing
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="section-heading">
+            <h2>Choose Your Tool</h2>
+            <p>Pick a tool and start creating content in seconds.</p>
+        </div>
+
+        <div class="tools">
+
+            <button class="tool pink active"
+                onclick="selectTool('caption',this)">
+                <div class="tool-icon">✍️</div>
+                <h3>Caption Generator</h3>
+                <p>Write engaging captions for your posts.</p>
+            </button>
+
+            <button class="tool mint"
+                onclick="selectTool('hashtags',this)">
+                <div class="tool-icon">#️⃣</div>
+                <h3>Hashtag Ideas</h3>
+                <p>Find relevant hashtags for your posts.</p>
+            </button>
+
+            <button class="tool lavender"
+                onclick="selectTool('reels',this)">
+                <div class="tool-icon">🎬</div>
+                <h3>Reel Ideas</h3>
+                <p>Get creative video concepts and scripts.</p>
+            </button>
+
+            <button class="tool peach"
+                onclick="selectTool('product',this)">
+                <div class="tool-icon">🛍️</div>
+                <h3>Product Description</h3>
+                <p>Describe your products with style.</p>
+            </button>
+
+            <button class="tool blue"
+                onclick="selectTool('festival',this)">
+                <div class="tool-icon">🎉</div>
+                <h3>Festival Marketing</h3>
+                <p>Create festive promotional content.</p>
+            </button>
+
+            <button class="tool cyan"
+                onclick="selectTool('bio',this)">
+                <div class="tool-icon">👤</div>
+                <h3>Instagram Bio</h3>
+                <p>Write a catchy profile description.</p>
+            </button>
+
+        </div>
+    </section>
+
+    <section id="generator" class="generator">
+
+        <div class="generator-heading">
+            <div class="generator-icon">✍️</div>
+            <div>
+                <h2 id="formTitle">Caption Generator</h2>
+                <p>Create content for your social media posts.</p>
+            </div>
+        </div>
+
+        <div class="generator-grid">
+
+            <div>
+                <div class="form-group">
+                    <label for="business">🏪 Business or page name</label>
+                    <input id="business" placeholder="e.g. Elva Jewels">
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">📝 What is your content about?</label>
+                    <textarea id="topic" maxlength="500"
+                        placeholder="e.g. Beautiful 92.5 silver necklace"></textarea>
+                </div>
+
+                <div class="select-row">
+                    <div class="form-group">
+                        <label for="audience">👥 Target audience</label>
+                        <select id="audience">
+                            <option value="everyone">Everyone</option>
+                            <option value="customers">Potential customers</option>
+                            <option value="young people">Young people</option>
+                            <option value="business owners">Business owners</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="language">🌐 Language</label>
+                        <select id="language">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Hinglish">Hinglish</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tone">🎨 Writing style</label>
+                    <select id="tone">
+                        <option value="engaging">Engaging</option>
+                        <option value="professional">Professional</option>
+                        <option value="fun">Fun and trendy</option>
+                        <option value="premium">Premium</option>
+                    </select>
+                </div>
+
+                <button class="generate" onclick="generateContent()">
+                    ✨ Generate Content
+                </button>
+
+                <p class="small-note">
+                    Demo version: this uses templates, not a live AI model.
+                </p>
+            </div>
+
+            <div class="output-card">
+                <div class="output-top">
+                    <h3>✨ Your Content</h3>
+
+                    <div class="output-actions">
+                        <button class="secondary" onclick="copyContent()">
+                            📋 Copy
+                        </button>
+                        <button class="secondary" onclick="shareContent()">
+                            ↗ Share
+                        </button>
+                    </div>
+                </div>
+
+                <div id="resultText" class="result-text" aria-live="polite">Your generated content will appear here.
+
+💡 Choose a tool, enter a topic, and tap Generate Content.</div>
+
+                <div class="hint">
+                    💡 Personalise your content before publishing it.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="section-heading">
+            <h2>Simple Plans for Everyone</h2>
+            <p>Example plans for a future version of SocialBoost AI.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <div class="price-card">
+                <h3>Free</h3>
+                <div class="price">₹0 <small>/ forever</small></div>
+                <p>For trying the tools.</p>
+                <ul>
+                    <li>Caption templates</li>
+                    <li>Hashtag suggestions</li>
+                    <li>Reel ideas</li>
+                    <li>Copy and share</li>
+                </ul>
+            </div>
+
+            <div class="price-card featured">
+                <h3>⭐ Pro</h3>
+                <div class="price">₹299 <small>/ month</small></div>
+                <p>Proposed pricing; not active.</p>
+                <ul>
+                    <li>Planned AI generation</li>
+                    <li>Additional content tools</li>
+                    <li>More usage</li>
+                    <li>More languages</li>
+                </ul>
+            </div>
+
+            <div class="price-card">
+                <h3>Business</h3>
+                <div class="price">₹799 <small>/ month</small></div>
+                <p>Proposed pricing; not active.</p>
+                <ul>
+                    <li>Planned business features</li>
+                    <li>Expanded content tools</li>
+                    <li>Higher usage limits</li>
+                    <li>Marketing templates</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="small-note">
+            Payment collection, user accounts, and premium access are not
+            implemented in this prototype.
+        </p>
+    </section>
+
+</main>
+
+<footer id="about">
+    <div class="footer-inner">
+        <div class="brand">
+            <div class="brand-icon">🌿</div>
+            <div>
+                SocialBoost <span>AI</span>
+                <small>Smart Tools. Real Growth.</small>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            💜 Built for creators and small businesses.
+        </div>
+
+        <div class="footer-text">
+            © <span id="year"></span> SocialBoost AI
+        </div>
+    </div>
+</footer>
+
+<script>
+let currentTool = "caption";
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+const toolNames = {
+    caption: "Caption Generator",
+    hashtags: "Hashtag Ideas",
+    reels: "Reel Ideas",
+    product: "Product Description",
+    festival: "Festival Marketing",
+    bio: "Instagram Bio"
+};
+
+function scrollToGenerator() {
+    document.getElementById("generator").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+function selectTool(tool, element) {
+    currentTool = tool;
+
+    document.querySelectorAll(".tool").forEach(button => {
+        button.classList.remove("active");
+    });
+
+    element.classList.add("active");
+
+    document.getElementById("formTitle").textContent =
+        toolNames[tool];
+
+    scrollToGenerator();
+}
+
+function generateContent() {
+    const business =
+        document.getElementById("business").value.trim()
+        || "Our Brand";
+
+    const topic =
+        document.getElementById("topic").value.trim();
+
+    const audience =
+        document.getElementById("audience").value;
+
+    const language =
+        document.getElementById("language").value;
+
+    const tone =
+        document.getElementById("tone").value;
+
+    if (!topic) {
+        alert("Please enter a topic first!");
+        document.getElementById("topic").focus();
+        return;
+    }
+
+    const result = createTemplate({
+        tool: currentTool,
+        business,
+        topic,
+        audience,
+        language,
+        tone
+    });
+
+    document.getElementById("resultText").textContent = result;
+}
+
+function createTemplate(data) {
+    const {
+        tool,
+        business,
+        topic,
+        audience,
+        language,
+        tone
+    } = data;
+
+    let output = "";
+
+    if (tool === "hashtags") {
+        output =
+`${business} | Hashtag Ideas
+
+${topic}
+
+#Instagram #ContentCreator #SmallBusiness
+#ExplorePage #NewPost #Trending
+#OnlineShopping #DiscoverMore
+
+Tip: Use hashtags relevant to your actual post.`;
+
+    } else if (tool === "reels") {
+        output =
+`🎬 REEL IDEA FOR ${business}
+
+Topic: ${topic}
+
+1. THE HOOK
+Start with: "Wait until you see this!"
+
+2. SHOW
+Present ${topic} in an interesting way.
+
+3. ADD DETAILS
+Highlight one useful feature or interesting detail.
+
+4. CALL TO ACTION
+"Save this Reel and share it with a friend!"
+
+✨ Try clear lighting, close-up shots and readable text.`;
+
+    } else if (tool === "product") {
+        output =
+`${business} ✨
+
+Discover ${topic}.
+
+Thoughtfully presented and ready to be showcased to your customers.
+
+WHY EXPLORE IT?
+
+✦ Attractive presentation
+✦ A thoughtful gifting option
+✦ A style to explore for different occasions
+
+📩 Contact us for product details, availability and pricing.
+
+#ProductDetails #Shopping #DiscoverMore`;
+
+    } else if (tool === "festival") {
+        output =
+`🎉 FESTIVE GREETINGS FROM ${business.toUpperCase()}!
+
+Celebrate the season with ${topic}.
+
+Make every moment special with something meaningful.
+
+✨ Explore our collection.
+🎁 Discover thoughtful gifting ideas.
+💌 Message us for more information.
+
+#FestiveSeason #FestivalVibes #SmallBusiness`;
+
+    } else if (tool === "bio") {
+        output =
+`${business} ✨
+
+${topic}
+
+✦ Quality | Style | Customer Care
+✦ Discover something special
+📩 DM for enquiries
+
+Edit these lines to accurately represent your business.`;
+
+    } else {
+        const captions = {
+            engaging:
+`✨ Something special is here!
+
+Discover ${topic} with ${business}.
+
+Save this post and tell us what you think! 💜
+
+#DiscoverMore #InstagramPost #NewCollection`,
+
+            professional:
+`${business}
+
+Explore ${topic} with a focus on thoughtful presentation and customer experience.
+
+Contact us for more information.
+
+#Business #Quality #CustomerExperience`,
+
+            fun:
+`POV: You just discovered ${topic} 👀✨
+
+Add this to your list and share it with someone who needs to see it!
+
+#Trending #ReelIdeas #DiscoverMore`,
+
+            premium:
+`${business} presents ${topic}.
+
+Thoughtfully selected. Beautifully presented. Made to make an impression.
+
+Discover more by contacting our team.
+
+#PremiumStyle #TimelessDesign #DetailsMatter`
+        };
+
+        output = captions[tone] || captions.engaging;
+
+        if (audience === "young people") {
+            output += "\n\nMade for your next favourite discovery. ✨";
+        }
+    }
+
+    if (language === "Hindi") {
+        output +=
+"\n\nNote: This demo currently creates English templates. Real Hindi generation requires an AI or translation service.";
+    } else if (language === "Hinglish") {
+        output +=
+"\n\nNote: Hinglish generation requires an AI or translation service.";
+    }
+
+    return output;
+}
+
+async function copyContent() {
+    const text =
+        document.getElementById("resultText").textContent;
+
+    try {
+        await navigator.clipboard.writeText(text);
+        alert("✨ Content copied successfully!");
+    } catch (error) {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+
+        try {
+            document.execCommand("copy");
+            alert("Content copied!");
+        } catch (copyError) {
+            alert("Please select and copy the text manually.");
+        }
+
+        area.remove();
+    }
+}
+
+async function shareContent() {
+    const text =
+        document.getElementById("resultText").textContent;
+
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: "SocialBoost AI",
+                text: text
+            });
+        } catch (error) {
+            // User cancelled sharing.
+        }
+    } else {
+        await copyContent();
+    }
+}
+</script>
+
+</body>
+</html>
